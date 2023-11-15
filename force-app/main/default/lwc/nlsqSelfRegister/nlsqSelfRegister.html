@@ -1,0 +1,172 @@
+<template>
+    <lightning-spinner if:true={isLoading} variant="brand" size="large"> </lightning-spinner>
+    <div class="sign-up-container">
+        <c-nlsq-toast></c-nlsq-toast>
+
+        <div class="sign-up-main-title">
+            <h2 class="medium-title">{labels.signUpLabel}</h2>
+            <h4 class="sub-title">{labels.joinToLabel}</h4>
+        </div>
+
+        <div class="sign-up-container__inner">
+            <h4 class="sign-up-section__title sub-title">{labels.profileInfoLabel}</h4>
+            <div class="sign-up-container__row">
+                <div class="slds-form-element" data-name="FirstName">
+                    <div class="slds-form-element__control">
+                        <div class="sign-up-container__row-item">
+                            <label class="sign-up-label" for="FirstName">{labels.firstNameLabel} <span>*</span></label>
+                            <input
+                                required
+                                class="sign-up-input"
+                                type="text"
+                                id="FirstName"
+                                name="FirstName"
+                                placeholder={labels.firstNameLabel}
+                                onchange={setContactField}
+                                maxlength="40"
+                            />
+                        </div>
+                        <div data-name="FirstName-error" class="slds-form-element__help slds-hide">{labels.completeFieldLabel}</div>
+                    </div>
+                </div>
+                <div class="slds-form-element" data-name="LastName">
+                    <div class="slds-form-element__control">
+                        <div class="sign-up-container__row-item">
+                            <label class="sign-up-label" for="LastName">{labels.lastNameLabel} <span>*</span></label>
+                            <input
+                                class="sign-up-input"
+                                type="text"
+                                id="LastName"
+                                name="LastName"
+                                placeholder={labels.lastNameLabel}
+                                onchange={setContactField}
+                                maxlength="80"
+                            />
+                        </div>
+                        <div data-name="LastName-error" class="slds-form-element__help slds-hide">{labels.completeFieldLabel}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sign-up-container__row">
+                <div class="slds-form-element" data-name="Email">
+                    <div class="slds-form-element__control">
+                        <div class="sign-up-container__row-item">
+                            <label class="sign-up-label" for="Email">{labels.emailLabel} <span>*</span></label>
+                            <input
+                                class="sign-up-input"
+                                type="email"
+                                id="Email"
+                                name="Email"
+                                placeholder={labels.emailLabel}
+                                onblur={validateEmail}
+                                onchange={setContactField}
+                                maxlength="80"
+                            />
+                        </div>
+                        <div data-name="Email-error" class="slds-form-element__help slds-hide">{emailErrorMsg}</div>
+                    </div>
+                </div>
+                <div class="sign-up-container__row-item"></div>
+            </div>
+            <div class="sign-up-container__row">
+                <div class="sign-up-container__row-item country-row">
+                    <c-nlsq-country-and-state
+                        country-field-value={country}
+                        country-name="MailingCountryCode"
+                        state-field-value={state}
+                        state-name="MailingStateCode"
+                        onchangepicklist={setAddressField}
+                        ongetstatesbycountry={setStatesByCountry}
+                        country-required
+                        state-required
+                        class="submit-request__label-text country-state__container"
+                    ></c-nlsq-country-and-state>
+                </div>
+            </div>
+
+            <h4 class="sign-up-section__title sub-title">{labels.iAmLabel} <span>*</span></h4>
+            <div class="sign-up-container__controls-row">
+                <div class="sign-up-container__user-rols">
+                    <div class="slds-form-element" data-name="Portal_Roles__c">
+                        <lightning-checkbox-group
+                            id="Portal_Roles__c"
+                            name="Portal_Roles__c"
+                            label=""
+                            onchange={setContactField}
+                            options={rolesOptions}
+                            value={rolesValue}
+                        >
+                        </lightning-checkbox-group>
+                        <div data-name="Portal_Roles__c-error" class="slds-form-element__help slds-hide">{labels.completeFieldLabel}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="captcha-container">
+                <c-nlsq-re-captcha required error-msg={labels.completeFieldLabel} onchange={getReCaptchaResponse}> </c-nlsq-re-captcha>
+            </div>
+            <div class="sign-up__terms-container">
+                <div class="sign-up-container__controls-row">
+                    <div class="slds-form-element" data-name="terms">
+                        <div class="slds-form-element__control">
+                            <div class="slds-checkbox">
+                                <input type="checkbox" name="terms" id="terms" value={agreementFields.terms} onchange={setAgreementField} />
+                                <label class="slds-checkbox__label" for="terms">
+                                    <span class="slds-checkbox_faux"></span>
+                                    <span class="slds-form-element__label">
+                                        {labels.iAcceptLabel}&nbsp;
+                                        <a href={termsUrl} target="_blank" class="sign-up-link">{labels.termOfUseLink}</a>
+                                        <span class="asterisks">*</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div data-name="terms-error" class="slds-form-element__help slds-hide">{labels.completeFieldLabel}</div>
+                    </div>
+                </div>
+
+                <div class="sign-up-container__controls-row">
+                    <div class="slds-form-element" data-name="privacy">
+                        <div class="slds-form-element__control">
+                            <div class="slds-checkbox">
+                                <input
+                                    type="checkbox"
+                                    name="privacy"
+                                    id="privacy"
+                                    value={agreementFields.privacy}
+                                    onchange={setAgreementField}
+                                />
+                                <label class="slds-checkbox__label" for="privacy">
+                                    <span class="slds-checkbox_faux"></span>
+                                    <span class="slds-form-element__label">
+                                        {labels.iReadLabel}&nbsp;
+                                        <a href={privacyUrl} target="_blank" class="sign-up-link">{labels.privacyPolicyLink}</a>
+                                        <span class="asterisks">*</span>
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                        <div data-name="privacy-error" class="slds-form-element__help slds-hide">{labels.completeFieldLabel}</div>
+                    </div>
+                </div>
+
+                <div class="sign-up-container__controls-row agree-mail-receive-row">
+                    <div class="slds-form-element" data-name="subscription">
+                        <div class="slds-form-element__control">
+                            <div class="slds-checkbox">
+                                <input type="checkbox" name="HasOptedOutOfEmail" id="HasOptedOutOfEmail" onchange={setContactField} />
+                                <label class="slds-checkbox__label" for="HasOptedOutOfEmail">
+                                    <span class="slds-checkbox_faux"></span>
+                                    <span class="slds-form-element__label">{labels.agreeRecievingLabel}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sign-up-button-container">
+                <button class="btn-default btn-red" id="submitButton" onclick={handleSelfRegister}>{labels.registerLabel}</button>
+            </div>
+        </div>
+    </div>
+</template>

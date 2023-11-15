@@ -1,0 +1,166 @@
+.sign-up-container__inner {
+    border-radius: 10px;
+    background: #fff;
+    padding: 60px;
+    box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.05);
+}
+.sign-up-main-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 30px;
+}
+.sign-up-main-title .medium-title {
+    color: #EF373E;
+    padding: 0;
+}
+.sign-up-main-title .sub-title {
+    color: #26225E;
+    padding: 0;
+}
+.sign-up-section__title {
+    margin-bottom: 30px;
+    color: #26225E;
+}
+.sign-up-section__title.sub-title span,
+.sign-up-label span {
+    color: #EF373E;
+}
+.sign-up-container__row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 30px;
+    gap: 60px;
+}
+.sign-up-container__row-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+}
+
+.sign-up-label {
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    letter-spacing: 0.02em;
+}
+.sign-up-input {
+    background: #FFF;
+    border-radius: 10px;
+    border: 1px solid #BEB9BB;
+    color: #000;
+    font: 400 16px/22px 'Open Sans', sans-serif;
+    padding: 15px;
+}
+/* LINKS */
+.sign-up-container .sign-up-link {
+    color: #EF373E;
+}
+
+/* CAPTCHA */
+.captcha-container {
+    margin-bottom: 30px;
+}
+
+/* custom styles for SLDS dropdown */
+.sign-up-container__inner .country-row .slds-form-element__label {
+    display: none;
+}
+.sign-up-container__inner .country-row .slds-form-element__control .slds-input_faux {
+    background: #F3F2F3;
+    border-radius: 10px;
+    border: 1px solid #BEB9BB;
+    font: 400 16px/22px 'Open Sans', sans-serif;
+    padding: 15px;
+}
+.sign-up-container__inner .country-row .slds-form-element__control .slds-input_faux:not(.slds-combobox__input-value) {
+    color: #8C898A;
+}
+.sign-up-container__inner .country-row .slds-form-element__control .slds-input__icon-group_right {
+    right: 15px;
+}
+.sign-up-container__inner .country-row .slds-form-element__control .slds-input__icon-group_right .slds-icon-text-default {
+    fill: #BEB9BB;
+}
+
+/* custom styles for SLDS checkbox */
+.sign-up-container__user-rols {
+    margin-bottom: 40px;
+}
+.sign-up__terms-container .slds-form-element {
+    margin-bottom: 20px;
+}
+.sign-up-container__inner .slds-checkbox .slds-checkbox__label {
+    cursor: pointer;
+}
+.sign-up-container__inner .slds-form-element .slds-checkbox [type=checkbox] + .slds-checkbox__label .slds-checkbox_faux {
+    width: 24px;
+    height: 24px;
+    border: 1px solid #BEB9BB;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+.sign-up-container__inner .slds-checkbox [type=checkbox]:checked + .slds-checkbox__label .slds-checkbox_faux:after {
+    height: 7px;
+    width: 11px;
+    border-bottom: 3px solid #f00;
+    border-left: 3px solid #f00;
+    border-radius: 1px;
+}
+.sign-up-container__inner .slds-checkbox .slds-checkbox__label .slds-form-element__label {
+    font: 400 16px/22px 'Open Sans', sans-serif;
+    color: #8C898A;
+    letter-spacing: 0.02em;
+}
+
+/* agree mail receive row  */
+.agree-mail-receive-row .slds-checkbox .slds-checkbox__label {
+    display: flex;
+    align-items: center;
+}
+
+/* register button */
+.sign-up-button-container {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.asterisks {
+    color: #EF373E;
+    margin-left: 5px;
+}
+
+.country-state__container {
+    max-width: 100%;
+    display: flex;
+    gap: 20px 40px;
+}
+
+@media screen and (max-width: 767px) {
+    .sign-up-container__inner {
+        padding: 20px;
+    }
+    .sign-up-main-title {
+        padding-bottom: 40px;
+    }
+    .sign-up-main-title .medium-title {
+        font-size: 36px;
+        line-height: 47px;
+    }
+    .sign-up-container__row {
+        flex-direction: column;
+        padding-bottom: 0;
+        gap: 0;
+    }
+    .sign-up-container__row-item {
+        width: 100%;
+    }
+    .sign-up-container__row-item:not(:empty) {
+        margin-bottom: 30px;
+    }
+    .country-state__container {
+        flex-wrap: wrap;
+    }
+}

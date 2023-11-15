@@ -1,0 +1,20 @@
+.share-input-wrapper .share-input-label{
+    font: 400 13px/24px 'Open Sans', sans-serif;
+    color: #8C898A;
+    padding-left: 5px;
+}
+.share-link-input {
+    font: 400 16px/24px 'Open Sans', sans-serif;
+    color: #747474;
+    height: 47px;
+    border-radius: 10px;
+}
+.text-color_red {
+    color: #EF373E;
+}
+.btn-share {
+    width: 100%;
+}
+.btn-copy__label {
+    cursor: pointer;
+}

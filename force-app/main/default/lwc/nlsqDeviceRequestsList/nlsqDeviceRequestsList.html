@@ -1,0 +1,50 @@
+<template>
+    <div>
+        <c-nlsq-device-requests-filter onsearch={updateListView} field-to-value={filteringFieldToValue}></c-nlsq-device-requests-filter>
+        <div class="device-request__sorting-menu" if:true={deviceRequests.length}>
+            <p class="sorting-menu__toggle" onclick={showSortMenu}>{labels.lblSortBy}</p>
+            <ul class="list-menu">
+                <template for:each={filterFiellds} for:item="field">
+                    <li class="list-menu__item" key={field.fieldLabel}>
+                        <h2
+                            class="list-menu__sorting-label"
+                            role="button"
+                            tabindex="0"
+                            onclick={handleChangeSortField}
+                            data-name={field.fieldApiName}
+                        >
+                            {field.fieldLabel}
+                            <div if:true={isShouldSorting}>
+                                <div if:true={field.isSelected}>
+                                    <lightning-icon
+                                        icon-name="utility:chevronup"
+                                        class="device-request__arrow"
+                                        if:true={field.isSortAsc}
+                                    ></lightning-icon>
+                                    <lightning-icon
+                                        icon-name="utility:chevrondown"
+                                        class="device-request__arrow"
+                                        if:false={field.isSortAsc}
+                                    ></lightning-icon>
+                                </div>
+                            </div>
+                        </h2>
+                    </li>
+                </template>
+            </ul>
+        </div>
+        <div class="device_request-list">
+            <lightning-spinner if:true={isLoading} alternative-text="Loading" size="small"></lightning-spinner>
+            <template if:true={deviceRequests.length} for:each={deviceRequests} for:item="request">
+                <c-nlsq-device-request-tile key={request.Id} device-request={request}></c-nlsq-device-request-tile>
+            </template>
+            <div if:true={isNoResult} class="empty-builds-requests">
+                <img class="empty-builds-requests__image" src={noResultImg} />
+                <p class="empty-builds-requests__text">{labels.lblNoResults}</p>
+            </div>
+        </div>
+        <div class="reviews_pagination" if:true={deviceRequests.length}>
+            <c-nlsq-list-pagination onsetpage={handleSetPage} current-page={currentPage}> </c-nlsq-list-pagination>
+        </div>
+    </div>
+</template>

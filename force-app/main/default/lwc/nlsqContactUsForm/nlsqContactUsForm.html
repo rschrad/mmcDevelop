@@ -1,0 +1,70 @@
+<template>
+    <div class="contact-us__container">
+        <lightning-spinner if:true={isLoading} alternative-text="Loading" size="small"></lightning-spinner>
+        <div class="contact-us__header">
+            <h3 class="contact-us__title">Message Us</h3>
+            <p class="contact-us__text">{labels.titleContactUs}</p>
+        </div>
+        <lightning-input
+            class="validate"
+            name="FirstName"
+            type="text"
+            label={labels.lblFirstNameCU}
+            value={contact.FirstName}
+            onchange={setRequestField}
+            data-obj="Contact"
+            required
+        ></lightning-input>
+        <lightning-input
+            class="validate"
+            name="LastName"
+            type="text"
+            label={labels.lblLastNameCU}
+            value={contact.LastName}
+            onchange={setRequestField}
+            data-obj="Contact"
+            required
+        ></lightning-input>
+        <lightning-input
+            class="validate"
+            name="Email"
+            type="email"
+            label={labels.lblEmailCU}
+            value={contact.Email}
+            onchange={setRequestField}
+            data-obj="Contact"
+            required
+        ></lightning-input>
+        <lightning-input
+            class="validate"
+            name="Subject"
+            type="text"
+            label={labels.lblSubjectCU}
+            value={message.Subject}
+            onchange={setRequestField}
+            data-obj="Case"
+            required
+        ></lightning-input>
+        <lightning-textarea
+            class="validate"
+            name="Description"
+            type="text"
+            label={labels.lblMessageCU}
+            value={message.Description}
+            onchange={setRequestField}
+            data-obj="Case"
+            placeholder={labels.msgContactUsPlaceholder}
+            required
+        ></lightning-textarea>
+        <div if:false={hideFormFooter} class="footer">
+            <div class="contact-us__captcha">
+                <c-nlsq-re-captcha required error-msg={labels.lblCompleteFieldCU} onchange={handleReCaptcha}></c-nlsq-re-captcha>
+            </div>
+            <lightning-button class="contact-us__btn" label={labels.lblSendMessageCU} onclick={sendMessage}></lightning-button>
+        </div>
+
+        <div if:true={hideFormFooter} class="footer">
+            <c-nlsq-alert main-text={labels.msgThankForQuestion} type="success" icon-name="utility:info"></c-nlsq-alert>
+        </div>
+    </div>
+</template>

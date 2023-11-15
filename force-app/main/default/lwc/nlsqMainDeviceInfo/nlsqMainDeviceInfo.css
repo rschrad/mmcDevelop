@@ -1,0 +1,175 @@
+/* Main device info */
+.product-detail__wrapper {
+    max-width: 621px;
+}
+.product-detail__wrapper .nlsq__product-detail a {
+    text-decoration: none;
+}
+.nlsq__product-detail .small-title {
+    color: #26225E;
+}
+.product-detail__review {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0 50px;
+}
+.review__left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.review__stars-container {
+    display: flex;
+}
+.review-link {
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    color: #8C898A;
+}
+.product-detail__description {
+    font: 400 16px/22px 'Open Sans', sans-serif;
+    color: #8C898A;
+    padding-bottom: 30px;
+}
+.product-detail__icons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 30px 0;
+    border-top: 1px solid #BEB9BB;
+    border-bottom: 1px solid #BEB9BB;
+    border-radius: 1px;
+}
+.product-detail__icon-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 7px;
+}
+.product-detail__skill-icon {
+    width: 32px;
+}
+.product-detail__skill-name {
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    color: #8C898A;
+    text-align: center;
+}
+.product-detail__profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 30px 0 40px;
+}
+.profile__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+}
+.profile__name {
+    font: 700 24px/33px 'Open Sans', sans-serif;
+    color: #2C2E34;
+}
+.btn-indigo.product-detail__button {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 20px 0;
+}
+.btn-indigo.product-detail__button:hover,
+.btn-indigo.product-detail__button:focus,
+.btn-indigo.product-detail__button:active {
+    color: #fff;
+}
+.product-detail__buttons {
+    display: flex;
+    padding: 30px 0 0;
+    gap: 3.5%;
+}
+.btn-icon .button-icon__label {
+    cursor: pointer;
+}
+.product-detail__activities {
+    padding: 40px 0 0;
+    display: flex;
+    justify-content: space-between;
+}
+.product-detail__activities__left {
+    display: flex;
+    gap: 13px;
+}
+.activities__item,
+.activities__update-info {
+    display: flex;
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    color: #8C898A;
+}
+.activities__update-info {
+    padding: 0;
+    border: none;
+    gap: 6px;
+}
+.activities__image {
+    padding-right: 5px;
+}
+.share-modal {
+    width: 31%;
+}
+
+@media (max-width: 1024px) {
+    .product-detail__icons {
+        justify-content: center;
+    }
+    .product-detail__review {
+        flex-direction: column;
+        padding: 15px 0 20px;
+        gap: 10px;
+    }
+    .product-detail__description {
+        padding-bottom: 15px;
+    }
+    .product-detail__profile {
+        padding: 15px 0 20px;
+    }
+    .nlsq__product-detail .small-title {
+        font: 34px/36px 'Roboto Slab', serif;
+    }
+    .product-detail__buttons .btn-icon {
+        font: 600 14px/21px 'Open Sans', sans-serif;
+        gap: 5px;
+        padding: 10px 0;
+    }
+    .btn-indigo.product-detail__button {
+        padding: 10px 0;
+    }
+    .product-detail__activities__left {
+        gap: 10px;
+    }
+    .activities__image {
+        padding-right: 3px;
+    }
+}
+
+@media (max-width: 767px) {
+    .product-detail__wrapper {
+        max-width: 100%;
+    }
+    .product-detail__review {
+        flex-direction: row;
+    }
+    .product-detail__buttons {
+        padding: 25px 0 25px;
+    }
+}
+
+@media (max-width: 380px) {
+    .product-detail__review {
+        flex-direction: column;
+    }
+    .product-detail__activities {
+        flex-direction: column;
+        gap: 5px;
+    }
+    .product-detail__activities__right {
+        align-self: flex-end;
+    }
+}

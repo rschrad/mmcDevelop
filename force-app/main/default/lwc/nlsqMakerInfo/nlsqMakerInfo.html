@@ -1,0 +1,20 @@
+<template>
+    <div class={classList}>
+        <div class="device_field_header" onclick={expandField}>
+            <span>Maker Information</span>
+                <lightning-icon icon-name="utility:chevrondown" class="device-field-arrow" if:true={isExpanded}></lightning-icon>
+                <lightning-icon icon-name="utility:chevronright" class="device-field-arrow" if:false={isExpanded}></lightning-icon>
+        </div>
+        <template if:true={isExpanded}>
+                <lightning-record-view-form object-api-name="Product2" record-id={recordId} density="comfy">
+                    <lightning-output-field field-name="Projects_Skills__c"></lightning-output-field>                        
+                    <lightning-output-field  field-name="Skills_Description__c"></lightning-output-field>
+                    <lightning-output-field  field-name="Print_Time__c"></lightning-output-field>
+                    <lightning-output-field  field-name="Assembly_Time__c"></lightning-output-field>
+                    <lightning-output-field  field-name="Tools_Needed__c"></lightning-output-field>
+                    <lightning-output-field  field-name="Build_Instructions__c"></lightning-output-field>
+                    <lightning-output-field  field-name="Project_Link__c"></lightning-output-field>
+                </lightning-record-view-form>
+        </template>
+    </div>
+</template>

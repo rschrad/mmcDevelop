@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Neil Squire My Devices</masterLabel>
+    <targets>
+        <target>lightningCommunity__Default</target>
+        <target>lightningCommunity__Page</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" type="String" label="Record Id"/>
+            <property name="itemsPerPage" type="Integer" label="Items Per Page"/>
+            <property name="fullListView" type="Boolean" label="Full list view"/>
+            <property name="viewAllLink" type="String" label="View all link"/>
+            <property name="submitDeviceLink" type="String" label="Submit a device link" default="Submit_a_Device__c"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

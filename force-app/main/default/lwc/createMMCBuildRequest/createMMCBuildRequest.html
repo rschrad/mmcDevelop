@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Create MMC Build Request" icon-name="custom:custom63">
+        <lightning-record-form
+            object-api-name={deviceRequestObject}
+            fields={fields}
+            onsuccess={handleSuccess}
+            record-type-id={deviceRequestRecordTypeId}>
+        </lightning-record-form>
+    </lightning-card>
+</template>

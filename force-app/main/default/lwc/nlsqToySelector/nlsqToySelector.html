@@ -1,0 +1,38 @@
+<template>
+    <!-- this subcomponent will show a 2x3 grid with the six different toy types
+    the user will be able to select up to two options from the grid 
+    when the user clicks on the label, nlsqModal will pop up with more info -->
+    <!-- set up the grid-->
+    <div class="grid-container">
+        <div class="grid-item">
+            <div class="grid-item-content">
+                <lightning-input type="checkbox" label="Light" onchange={handleLightChange}></lightning-input>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-item-content">
+                <lightning-input type="checkbox" label="Sound" onchange={handleSoundChange}></lightning-input>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-item-content">
+                <lightning-input type="checkbox" label="Vibration" onchange={handleVibrationChange}></lightning-input>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-item-content">
+                <lightning-input type="checkbox" label="Remote Control" onchange={handleRemoteControlChange}></lightning-input>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-item-content">
+                <lightning-input type="checkbox" label="Plush" onchange={handlePlushChange}></lightning-input>
+            </div>
+        </div>
+        <div class="grid-item">
+            <div class="grid-item-content">
+                <lightning-input type="checkbox" label="Bubbles" onchange={handleBubblesChange}></lightning-input>
+            </div>
+        </div>
+    </div>
+</template>

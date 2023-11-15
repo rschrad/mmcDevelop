@@ -1,0 +1,42 @@
+.device-request-filter__title {
+    font: 600 16px/24px 'Open Sans', sans-serif;
+    padding: 40px 0 10px;
+}
+.device-request-filter__container {
+    width: 100%;
+}
+.device__input {
+    width: 30%;
+}
+.country-state__container {
+    width: 60%;
+}
+.device-request-filter__container,
+.country-state__container {
+    display: flex;
+    gap: 10px 20px;
+}
+.device-request-filter__button {
+    align-self: flex-end;
+    padding: 10px 0;
+    font: 600 14px/18px 'Open Sans', sans-serif;
+    background: #fff;
+    border: 1px solid #BEB9BB;
+    border-radius: 4px;
+    width: 10%;
+}
+
+@media screen and (max-width: 767px) {
+    .device-request-filter__title {
+        padding: 20px 0 10px;
+    }
+    .device-request-filter__container,
+    .country-state__container {
+        flex-wrap: wrap;
+    }
+    .device__input,
+    .country-state__container,
+    .device-request-filter__button {
+        width: 100%;
+    }
+}

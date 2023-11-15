@@ -1,0 +1,46 @@
+.device_submit__container {
+    padding-top: 80px;
+}
+.device_submit {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 760px;
+    padding: 60px;
+    background: #fff;
+    margin: auto;
+    border-radius: 10px;
+}
+.device_submit__title {
+    font: 700 24px/32px 'Roboto Slab', serif;
+    color: #26225E;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+.device_submit__picklist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.device_submit__picklist-title {
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    color: #2C2E34;
+    letter-spacing: 0.02em;
+    padding-bottom: 10px;
+}
+.submit_btn {
+    background: #EF373E;
+    border-radius: 10px;
+    font: 600 18px/25px 'Open Sans', sans-serif;
+    color: #fff;
+    border: none;
+    padding: 10px 40px;
+    align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+    .device_submit {    
+        padding: 20px 10px;
+        gap: 20px;
+    }
+}

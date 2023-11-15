@@ -1,0 +1,120 @@
+<template>
+    <div class="device_submit__container">
+        <div class="device_submit">
+            <h1 class="device_submit__title">{labels.hSubmitDeviceTitle}</h1>
+            <lightning-input
+                type="text"
+                name="Name"
+                label={labels.fieldProjectName}
+                onchange={onFieldChange}
+                class="validate device_submit__label-text"
+                data-max="255"
+                required
+            >
+            </lightning-input>
+            <c-nlsq-file-uploader
+                label={labels.fieldFeatureImage}
+                file-name={labels.labelDeviceListImage}
+                accepted-formats={imgformats}
+                name="listImage"
+                onuploadfinished={setFiles}
+                class="device_submit__label-text"
+            >
+            </c-nlsq-file-uploader>
+            <lightning-textarea
+                name="User_Value_Statement__c"
+                label={labels.fieldUserValueStatement}
+                onchange={onFieldChange}
+                class="validate device_submit__label-text"
+                max-length="255"
+                required
+            >
+            </lightning-textarea>
+            <lightning-input-rich-text
+                name="Full_Description__c"
+                label-visible
+                label={labels.fieldProjectDescription}
+                onchange={onFieldChange}
+                class="validate device_submit__rich-text"
+                data-max="32768"
+                required
+            >
+            </lightning-input-rich-text>
+            <lightning-input-rich-text
+                name="Build_Instructions__c"
+                label-visible
+                label={labels.fieldBuildInstructions}
+                onchange={onFieldChange}
+                class="validate device_submit__rich-text"
+                data-max="2000"
+                required
+            >
+            </lightning-input-rich-text>
+            <template if:true={formFields}>
+                <div class="device_submit__picklist-container">
+                    <p class="device_submit__picklist-title">{labels.fieldDeviceCategory}</p>
+                    <c-nlsq-multi-picklist-selector
+                        class="device_submit__picklist"
+                        options={formFields.Device_Category__c}
+                        name="Device_Category__c"
+                        onchange={onFieldChange}
+                    >
+                    </c-nlsq-multi-picklist-selector>
+                </div>
+                <div class="device_submit__picklist-container">
+                    <p class="device_submit__picklist-title">{labels.fieldProjectsSkills}</p>
+                    <c-nlsq-multi-picklist-selector
+                        class="device_submit__picklist"
+                        options={formFields.Projects_Skills__c}
+                        name="Projects_Skills__c"
+                        onchange={onFieldChange}
+                    >
+                    </c-nlsq-multi-picklist-selector>
+                </div>
+                <div class="device_submit__picklist-container">
+                    <p class="device_submit__picklist-title">{labels.fieldDisabilityType}</p>
+                    <c-nlsq-multi-picklist-selector
+                        class="device_submit__picklist"
+                        options={formFields.Disability_Type__c}
+                        name="Disability_Type__c"
+                        onchange={onFieldChange}
+                    >
+                    </c-nlsq-multi-picklist-selector>
+                </div>
+            </template>
+            <c-nlsq-file-uploader
+                label={labels.fieldDownloadables}
+                is-multiple
+                accepted-formats={imgformats}
+                name="detailImages"
+                file-name={labels.labelDeviceDetailImage}
+                class="device_submit__label-text"
+                onuploadfinished={setFiles}
+            >
+            </c-nlsq-file-uploader>
+            <lightning-input
+                type="text"
+                name="DisplayUrl"
+                label={labels.fieldProjectLink}
+                onchange={onFieldChange}
+                class="validate device_submit__label-text"
+                data-max="255"
+                required
+            >
+            </lightning-input>
+            <lightning-combobox
+                class="validate device_submit__label-text"
+                if:true={formFields}
+                label={labels.labelOtherSkill}
+                name="License__c"
+                required
+                options={formFields.License__c}
+                onchange={onFieldChange}
+            ></lightning-combobox>
+            <div class="captcha_wrapper">
+                <c-nlsq-re-captcha required error-msg={labels.msgCompleteThisField} onchange={handleReCaptcha}></c-nlsq-re-captcha>
+            </div>
+            <button class="submit_btn" onclick={submit}>{labels.btnSubmitDevice}</button>
+        </div>
+    </div>
+</template>

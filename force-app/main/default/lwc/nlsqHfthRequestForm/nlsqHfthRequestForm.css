@@ -1,0 +1,55 @@
+.request-section-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0;
+}
+
+.request-instruction-container{
+    width:100%; 
+    vertical-align: left;
+}
+
+.request-step-header{
+    font: 18px/24px 'Roboto Slab';
+    text-align: left;
+    color: #26225E;
+    margin: 10px 0 10px 0;
+}
+
+.request-step-text{
+    font: 14px/24px 'Roboto';
+    text-align: left;
+    color: #26225E;
+    margin: 10px 0 20px 0;
+}
+
+.non-canada-warning{
+    font: 16px/24px 'Roboto';
+    text-align: left;
+    font-weight: bold;
+    color: #ef373e;
+    margin-top: 10px;
+    border-color: #ef373e;
+    border-radius: 2px;
+    border-width: 2px;
+    margin: 0 5px 0 5px;
+}
+
+.lightning-carousel{
+    object-fit: contain;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+
+.modal-content {
+    /* Set the maximum height for the content area containing the carousel */
+    max-height: 70vh; /* Adjust as needed */
+}
+
+.custom-card-style {
+    background-color: lightblue;
+    border: 2px solid blue;
+    border-radius: 10px;
+}

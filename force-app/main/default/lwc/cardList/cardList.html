@@ -1,0 +1,13 @@
+<template>
+    <lightning-layout multiple-rows>
+        <template for:each={cardData} for:item="card">
+            <lightning-layout-item key={card.id} size="12" small-size="12" medium-size="6" large-size="6">
+                <lightning-card>
+                    <img src={card.imageUrl} alt={card.title} style="width: 25%; float: left; margin-right: 10px; max-height: 150px">
+                    <h2 style="font-size: large;">{card.title}</h2>
+                    <p>{card.description}</p>
+                </lightning-card>
+            </lightning-layout-item>
+        </template>
+    </lightning-layout>
+</template>

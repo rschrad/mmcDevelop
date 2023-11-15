@@ -1,0 +1,43 @@
+.starbar {
+    position: relative;
+}
+.outer {
+    position: relative;
+    display: flex;
+}
+.outer-star {
+    fill: #E8E8E8;
+}
+.inner-star {
+    fill: #F3CD45;
+}
+.starbar_w {
+    /* For an aesthetic purposes we'r using 102%*/
+    width: calc(var(--rating) / 5 * 102%);
+    display: inline-flex;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.slds-current-color {
+    fill: #f3cd45;
+}
+.aps-item__rating-star {
+    display: flex;
+    padding-right: 2px;
+}
+.aps-item__rating-star:last-child {
+    padding-right: 0;
+}
+.stars {
+    display: flex;
+}
+.votes {
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    margin-left: 10px;
+    color: #848484;
+}
+.votes span {
+    vertical-align: text-top;
+}

@@ -1,0 +1,54 @@
+.columns .menu-list {
+    display: flex;
+    background: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 30px;
+    padding: 40px;
+    gap: 10px;
+}
+.device_request__text {
+    font: 400 16px/24px 'Open Sans', sans-serif;
+    color: #000;
+}
+.device_request__info {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.device_request__text_semi-bold {
+    font-weight: 600;
+    padding-right: 5px;
+}
+.device_request__name {
+    font-family: 'Open Sans',sans-serif;
+    font-weight: bold;
+    color: #26225E;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    padding-bottom: 20px;
+}
+.device_request__description {
+    display: flex;
+}
+.menu-list__item {
+    width: 16%;
+}
+.menu-list__item:nth-child(2) {
+    width: 36%;
+}
+
+@media screen and (max-width: 767px) {
+    .columns .menu-list {
+        flex-direction: column;
+        padding: 20px;
+    }
+    .device_request__name {
+        padding: 0;
+    }
+    .menu-list__item,
+    .menu-list__item:nth-child(2) {
+        width: 100%;
+    }  
+}

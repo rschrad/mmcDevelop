@@ -1,0 +1,23 @@
+<aura:component implements="forceCommunity:layout" description="Neil Squire Two Columns Page Layout" access="global">
+    <aura:attribute name="leftContent" type="Aura.Component[]" />
+    <aura:attribute name="rightContent" type="Aura.Component[]" />
+    <aura:attribute name="twoColumnsContentHeader" type="Aura.Component[]" />
+    <aura:attribute name="twoColumnsContentFooter" type="Aura.Component[]" />
+    <aura:attribute name="twoColumnsLayoutFooterGrey" type="Aura.Component[]" />
+
+    <div class="two-columns-layout-section">
+        <div class="nlsq__wrapper">
+            <div class="two-columns-content">
+                <div class="two-columns-content__header">{!v.twoColumnsContentHeader}</div>
+                <div class="two-columns-content__inner">
+                    <div class="two-columns-left">{!v.leftContent}</div>
+                    <div class="two-columns-right">{!v.rightContent}</div>
+                </div>
+                <div class="two-columns-content__footer">{!v.twoColumnsContentFooter}</div>
+            </div>
+        </div>
+    </div>
+    <div class="two-columns-layout__footer-grey">
+        <div class="nlsq__wrapper">{!v.twoColumnsLayoutFooterGrey}</div>
+    </div>
+</aura:component>

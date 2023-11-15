@@ -1,0 +1,38 @@
+.contact-us__container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.contact-us__title {
+    font: 700 64px/84px 'Roboto Slab', serif;
+    letter-spacing: 0.02em;
+    color: #26225E;
+    padding-bottom: 10px;
+}
+.contact-us__text {
+    font: 400 20px/30px 'Open Sans', sans-serif;
+    color: #2C2E34;
+}
+.contact-us__captcha {
+    margin-bottom: 40px;
+}
+
+@media screen and (max-width: 767px) {
+    .contact-us__container {
+        gap: 20px;
+    }
+    .contact-us__header {
+        text-align: center;
+    }
+    .contact-us__btn {
+        display: flex;
+        justify-content: center;
+    }
+    .contact-us__title {
+        font: 700 40px/54px 'Roboto Slab', serif;
+        padding: 0;
+    }
+    .contact-us__captcha {
+        margin-bottom: 20px;
+    }
+}

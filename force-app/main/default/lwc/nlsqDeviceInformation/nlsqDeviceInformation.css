@@ -1,0 +1,10 @@
+.device_info_accordian {
+    --slds-c-accordion-heading-font-size : 36px;
+    --slds-c-accordion-heading-font-family : 'Roboto Slab', serif;;
+    --slds-c-accordion-heading-text-color : #26225E;
+
+}
+
+.root{
+    --lwc-inputStaticFontSize: 1.25rem;
+}

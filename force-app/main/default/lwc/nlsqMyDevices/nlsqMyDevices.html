@@ -1,0 +1,52 @@
+<template>
+    <div class="container">
+        <lightning-spinner if:true={isLoading} alternative-text="Loading" size="small"></lightning-spinner>
+        <div class="my-devices__header">
+            <h2 class="my-devices__header-title">{labels.lblMyDevices}</h2>
+            <div class="my-devices__header-links">
+                <a onclick={openSubmitDevice} class="my-devices__submit-device-link btn-default btn-indigo"
+                    >{labels.btnSubmitDevice}
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.75 12.2256L4.75 12.2256"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M13.7012 6.20124L19.7512 12.2252L13.7012 18.2502"
+                            stroke="white"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </a>
+                <a if:false={fullListView} onclick={openAllDevicesPage} class="my-devices__all-devices-link">{labels.VIEW_ALL}</a>
+            </div>
+        </div>
+        <div if:true={devices} class="my-devices__cards">
+            <template for:each={devices} for:item="item">
+                <div key={item.device.Id} class="my-devices__card-container">
+                    <img src={item.imageUrl} class="card-container__image" />
+                    <p class="card-container__name">{item.device.Name}</p>
+                    <lightning-helptext
+                        if:false={item.device.IsActive}
+                        icon-name="utility:info"
+                        content="The device is not approved"
+                        class="card-container__help-text"
+                    ></lightning-helptext>
+                    <a class="card-container__link" data-id={item.device.Id} onclick={openDevice}>{labels.lblView}</a>
+                </div>
+            </template>
+        </div>
+        <div if:true={isNoResults} class="empty-my-devices">
+            <img class="empty-my-devices__image" src={myBuildsAndRequestsImg} />
+            <p class="empty-my-devices__text">{labels.lblNoDevices}</p>
+        </div>
+        <div class="reviews_pagination" if:true={fullListView}>
+            <c-nlsq-list-pagination onsetpage={handleSetPage} current-page={currentPage}></c-nlsq-list-pagination>
+        </div>
+    </div>
+</template>

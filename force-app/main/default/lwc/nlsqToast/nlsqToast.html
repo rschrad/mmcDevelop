@@ -1,0 +1,18 @@
+<template>
+    <div if:true={isShown} class="slds-notify_container">
+        <div class={className} role="status">
+            <span class="slds-assistive-text">{type}</span>
+            <span class="slds-icon_container slds-m-right_small slds-no-flex slds-align-top">
+                <lightning-icon icon-name={iconName} title={type} size="small" variant="inverse"></lightning-icon>
+            </span>
+            <div class="slds-notify__content">
+                <h2 class="slds-text-heading_small">{message}</h2>
+            </div>
+            <div class="slds-notify__close">
+                <button onclick={hideToast} class="slds-button slds-button_icon slds-button_icon-inverse" title="Close">
+                    <lightning-icon icon-name="utility:close" title="close" size="small" variant="inverse"></lightning-icon>
+                </button>
+            </div>
+        </div>
+    </div>
+</template>

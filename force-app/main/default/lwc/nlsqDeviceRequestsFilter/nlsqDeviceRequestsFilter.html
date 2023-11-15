@@ -1,0 +1,25 @@
+<template>
+    <div class="device-request-filter">
+        <h2 class="device-request-filter__title">{labels.lblFilter}:</h2>
+        <div class="device-request-filter__container">
+            <lightning-input
+                type="text"
+                label={labels.lblDevice}
+                name="Device__c"
+                value={fieldToValue.Device__c}
+                onkeyup={changeDeviceField}
+                class="device__input"
+            >
+            </lightning-input>
+            <c-nlsq-country-and-state
+                country-field-value={fieldToValue.Country__c}
+                country-name="Country__c"
+                state-field-value={fieldToValue.State__c}
+                state-name="State__c"
+                onchangepicklist={changeAddressField}
+                class="country-state__container"
+            ></c-nlsq-country-and-state>
+            <button class="device-request-filter__button" onclick={clearFilters}>{labels.lblClear}</button>
+        </div>
+    </div>
+</template>

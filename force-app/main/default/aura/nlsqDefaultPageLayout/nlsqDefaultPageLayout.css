@@ -1,0 +1,10 @@
+.THIS.default-page-content {
+    background: #F3F2F3;
+    padding-bottom: 50px;
+}
+.THIS .nlsq__wrapper {
+    max-width: 1270px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}

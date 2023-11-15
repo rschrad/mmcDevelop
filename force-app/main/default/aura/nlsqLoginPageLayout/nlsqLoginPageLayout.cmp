@@ -1,0 +1,13 @@
+<aura:component implements="forceCommunity:layout" description="Neil Squire Login Page Layout" access="global">
+    <aura:attribute name="loginRegion" type="Aura.Component[]" />
+    <aura:attribute name="loginLogo" type="Aura.Component[]" />
+
+    <div class="login-page-content">
+        <div class="login__wrapper">
+            <div class="login__inner">
+                <div class="login-logo-container">{!v.loginLogo}</div>
+                <div class="login-form-container">{!v.loginRegion}</div>
+            </div>
+        </div>
+    </div>
+</aura:component>

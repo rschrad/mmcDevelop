@@ -1,0 +1,37 @@
+<template>
+    <div class="request-detail__container" if:true={isCpmShown}>
+        <lightning-card>
+            <c-nlsq-device-request-main-info
+                request={request}
+                record-id={recordId}
+                onupdaterequest={updateRequest}
+            ></c-nlsq-device-request-main-info>
+        </lightning-card>
+        <div class="request-detail__bg-gray">
+            <div class="nlsq__wrapper">
+                <lightning-card>
+                    <div class="request-detail__user-info">
+                        <c-nlsq-requestor-card
+                            class="user-info__container"
+                            record-id={recordId}
+                            user-id={request.OwnerId.value}
+                            role={labels.requestorLabel}
+                        ></c-nlsq-requestor-card>
+                        <c-nlsq-user-info
+                            class="user-info__container"
+                            user-id={request.Maker__c.value}
+                            role={labels.makerLabel}
+                            data-id="maker"
+                        ></c-nlsq-user-info>
+                    </div>
+                </lightning-card>
+                <lightning-card>
+                    <div class="request-notes">
+                        <h2 class="request-notes__title">{labels.requestNotesLabel}</h2>
+                        <p class="request-notes__text">{request.Request_Notes__c.value}</p>
+                    </div>
+                </lightning-card>
+            </div>
+        </div>
+    </div>
+</template>

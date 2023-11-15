@@ -1,0 +1,54 @@
+.page_btns_outer {
+    display: flex;
+    align-items: center;
+}
+.page_btns {
+    display: flex;
+    margin: 0 16px;
+}
+.page_btn {
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    outline: none;
+    font-size: 16px;
+    color: #8C898A;
+    border: none;
+}
+.page_btn:first-child, .page_btn.arrow {
+}
+.page_btn.current {
+    background: #EF373E;
+    color: white;
+    border-radius: 10px;
+}
+.page_btn.empty {
+    width: 8px;
+}
+.page_btn.arrow img {
+    width: 10px;
+    height: 9px;
+}
+.rotated {
+    transform: rotate(180deg);
+}
+@media (max-width: 660px) {
+    .page {
+        height: 28px;
+    }
+    .page:not(.empty) {
+        width: 28px;
+    }
+}
+@media (max-width: 350px) {
+    .pages {
+        margin: 0 8px;
+    }
+    .page.empty {
+        width: 4px;
+    }
+}

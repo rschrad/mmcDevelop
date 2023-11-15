@@ -1,0 +1,9 @@
+.THIS.sign-up-page-content {
+    background: #F3F2F3;
+    padding: 60px 15px;
+}
+.THIS .sign-up__wrapper {
+    max-width: 780px;
+    width: 100%;
+    margin: 0 auto;
+}

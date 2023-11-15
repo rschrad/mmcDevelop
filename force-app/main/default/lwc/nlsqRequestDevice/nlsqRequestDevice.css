@@ -1,0 +1,62 @@
+.submit-request__container {
+    padding-top: 80px;
+}
+.submit-request__title {
+    font: 700 24px/32px 'Roboto Slab', serif;
+    letter-spacing: 0.02em;
+    color: #26225E;
+    text-align: center;
+}
+.submit-request {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 760px;
+    padding: 60px;
+    background: #fff;
+    border-radius: 10px;
+    margin: auto;
+}
+.submit-request .submit-request__label-text {
+    max-width: 300px;
+}
+.submit-request .submit-request__textarea,
+.submit-request .submit-request__consent {
+    max-width: 100%;
+}
+.submit-request__container .submit-request .submit-request__label-text.country-state__container {
+    max-width: 100%;
+    display: flex;
+    gap: 20px 40px;
+}
+.submit-request__consent-title {
+    font: 700 24px/32px 'Roboto Slab', serif;
+    letter-spacing: 0.02em;
+    color: #26225E;
+    padding: 20px 0 10px;
+}
+.submit-request__input-description {
+    font: 400 10px/14px 'Open Sans', sans-serif;
+    color: #8C898A;
+}
+.submit-request__btn {
+    align-self: center;
+}
+
+@media screen and (max-width: 767px) {
+    .submit-request__container {
+        padding-top: 40px;
+    }
+    .submit-request .submit-request__label-text {
+        max-width: 100%;
+    }
+    .submit-request {    
+        padding: 20px 10px;
+    }
+    .submit-request__container .submit-request .submit-request__label-text.country-state__container {
+        flex-wrap: wrap;
+    }
+    .submit-request__consent-title {
+        padding: 0;
+    }
+}

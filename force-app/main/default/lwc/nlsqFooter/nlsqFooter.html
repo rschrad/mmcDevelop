@@ -1,0 +1,81 @@
+<template>
+    <div class="footer-section">
+        <div class="nlsq__wrapper">
+            <div class="footer-inner">
+                <div class="footer-first-row">
+                    <a href={labels.homeLink} class="footer-logo">
+                        <img src={footerLogo} alt="" />
+                    </a>
+                    <div class="footer-subscribe">
+                        <h3 class="footer-subscribe__title small-title">
+                            <span>{labels.subscribe} </span>
+                            {labels.toNewsletter}
+                        </h3>
+                        <div class="footer-subscribe__input-container">
+                            <img src={letterIcon} alt="" />
+                            <input type="text" placeholder="Your email" />
+                            <button class="btn-subscribe btn-default btn-teal">{labels.subscribe}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-second-row">
+                    <div class="footer-address">
+                        <p class="address-item">{labels.streetAddress}</p>
+                        <p class="address-item">{labels.labelAddressFax}</p>
+                        <p class="address-item">{labels.labelAddressPhone} {labels.labelTollFree}</p>
+                    </div>
+                    <div class="footer-nav">
+                        <a href={labels.volunteerLink} class="footer-nav__item">{labels.volunteer}</a>
+                        <a href={labels.contactUsLink} class="footer-nav__item">{labels.contactUs}</a>
+                        <a href={labels.faqLink} class="footer-nav__item">{labels.faq}</a>
+                    </div>
+                    <div class="footer-donate">
+                        <p class="footer-donate__number">{labels.charityNumber}: {labels.charityNumberDigits}</p>
+                        <a href="https://hackingfortheholidays2023.causevox.com/" target="_blank">
+                            <button  class="btn-default btn-red">{labels.donate}</button>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-third-row">
+                    <div class="footer-third-row__left">
+                        <div class="footer-social">
+                            <a href={labels.facebookLink} class="footer-social__item">
+                                <img src={facebookIcon} alt="" />
+                            </a>
+                            <a href={labels.twitterLink} class="footer-social__item">
+                                <img src={twitterIcon} alt="" />
+                            </a>
+                            <a href={labels.instagramLink} class="footer-social__item">
+                                <img src={instagramIcon} alt="" />
+                            </a>
+                            <a href={labels.linkedinLink} class="footer-social__item">
+                                <img src={linkedinIcon} alt="" />
+                            </a>
+                            <a href={labels.youtubeLink} class="footer-social__item">
+                                <img src={youtubeIcon} alt="" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-third-row__right">
+                        <a href={labels.mailToLink} class="footer-web-link">{labels.lnkEmail}</a>
+                        <a href={labels.mainLink} target="_blank" class="footer-web-link">{labels.lnkWebsite}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="nlsq__wrapper">
+                <div class="footer-copyright__inner">
+                    <div class="footer-copyright__left">&copy; {currentYear} {labels.msgCopyright}</div>
+                    <div class="footer-copyright__right">
+                        <div class="footer-copyright__links">
+                            <a href={labels.siteMapLink} class="footer-copyright__link-item">{labels.lnkSiteMap}</a>
+                            <a href={labels.privacyStatementLink} class="footer-copyright__link-item">{labels.lnkPrivacyStatement}</a>
+                            <a href={labels.termsOfUseLink} class="footer-copyright__link-item">{labels.lnkTermsOfUse}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,40 @@
+<template>
+    <button type="button" class="btn-icon btn-purple btn-share" onclick={openShareDeviceLink}>
+        <svg class="btn-icon__icon" viewBox="0 0 27 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M18.61 9.39951L10.9787 17.1122L2.29925 11.6836C1.05567 10.9055 1.31435 9.01658 2.72096
+                    8.60523L23.3283 2.57036C24.6163 2.19284 25.8101 3.39711 25.4274 4.68933L19.3308 25.2823C18.9131
+                    26.6909 17.0349 26.9426 16.2643 25.6937L10.9747 17.1136"
+                stroke="#5C2F92"
+                stroke-width="3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+            />
+        </svg>
+        <label class="button-icon__label" for="">{labels.btnShare}</label>
+    </button>
+
+    <c-nlsq-modal data-id="share-modal" header={name}>
+        <div slot="body">
+            <div class="share-modal-wrapper">
+                <div class="slds-form-element share-modal__link">
+                    <div class="slds-form-element__control slds-grow share-input-wrapper">
+                        <label class="share-input-label">{labels.fieldCopyLink}</label>
+                        <input
+                            type="text"
+                            class="slds-input slds-is-disabled share-link-input"
+                            data-name="shareUrl"
+                            value={deviceUrl}
+                            disabled
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div slot="footer" class="tooltip tooltip-wrapper share-tooltip btn-copy-link">
+            <button class="btn-default btn-indigo" onclick={copyLink}>
+                <label class="btn-copy__label">{copyButtonLabel}</label>
+            </button>
+        </div>
+    </c-nlsq-modal>
+</template>

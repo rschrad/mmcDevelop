@@ -1,0 +1,35 @@
+.user-info__title {
+    color: #26225E;
+    padding-bottom: 40px;
+    font: 36px/47px 'Roboto Slab', serif;
+    letter-spacing: 0.02em;
+}
+.user-info__input-container {
+    display: flex;
+    gap: 10px 30px;
+}
+.user-info__input {
+    width: 25%;
+    color: #8C898A
+}
+.user-info__input-label {
+    font: 700 16px/24px 'Open Sans', sans-serif;
+    color: #2C2E34;
+    padding: 4px 0 12px;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 834px) {
+    .user-info__input-container {
+        flex-direction: column;
+    }
+    .user-info__input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .user-info__title {
+        padding-bottom: 20px;
+    }
+}

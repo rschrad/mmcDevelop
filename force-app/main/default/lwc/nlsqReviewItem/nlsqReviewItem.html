@@ -1,0 +1,12 @@
+<template>
+    <div class="review_outer">
+        <p class="review-title">{deviceReview.Device__r.Name}</p>
+        <p class="reviewer-name">{deviceReview.Owner.Name}</p>
+        <p class="review-date">
+            <lightning-formatted-date-time value={deviceReview.CreatedDate} year="numeric" month="short" day="2-digit">
+            </lightning-formatted-date-time>
+        </p>
+        <c-nlsq-rating-stars rating={deviceReview.Rating__c} color="#F3CD45"></c-nlsq-rating-stars>
+        <p class="review-comment">{deviceReview.Review_Body__c}</p>
+    </div>
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <button type="button" class="review__button-link" onclick={openReviewModal}>{labels.btnLeaveReview}</button>
+
+    <c-nlsq-modal data-id="review-modal" header={labels.hReviewModal}>
+        <div slot="body">
+            <div class="stars-review-container">
+                <label class="review-text review-rating-label" for="">
+                    {labels.msgRateReview}
+                    <span class="text-color_red">{labels.msgRequiredFieldsStar}</span>
+                </label>
+                <c-nlsq-rating-stars rating={currentRating} editable color={starsColor} onratingchange={setRating}></c-nlsq-rating-stars>
+            </div>
+            <div class="slds-form-element review-textarea-container">
+                <label class="review-text" for="">{labels.fieldComment}</label>
+                <textarea class="review-textarea" maxlength="255"></textarea>
+            </div>
+        </div>
+        <footer slot="footer" class="review-modal-footer">
+            <button class="btn-default btn-indigo btn-review-submit" disabled={saveButtonDisabled} onclick={saveReview}>
+                {labels.btnPostReview}
+            </button>
+            <button class="btn-default review-modal__btn-cancel" onclick={closeModal}>{labels.cancel}</button>
+        </footer>
+    </c-nlsq-modal>
+</template>

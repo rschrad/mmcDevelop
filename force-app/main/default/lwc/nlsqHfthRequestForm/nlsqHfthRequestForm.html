@@ -1,0 +1,90 @@
+<template> 
+    <template if:true={isCanada} >
+
+        <div class="slds-grid slds-wrap slds-gutters slds-p-bottom_medium">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="request-step-header">Step 1: Confirm Your Address</h2>
+                <p class="request-step-text">Please review the address on your profile and update to address you would like your toy to be sent</p>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                
+                <lightning-record-edit-form
+                    object-api-name={userObject}
+                    onsuccess={handleAddressSuccess}
+                    record-id={userId}>
+                    <lightning-messages></lightning-messages>
+                    <template if:false={editAddress}>
+                        <lightning-input-field field-name={addressField} variant="label-stacked" disabled required></lightning-input-field>
+                        <lightning-button class="slds-button slds-m-top_small slds-button_stretch" label="Update Address" onclick={handleUpdateAddress}></lightning-button>
+                    </template>
+                    <template if:true={editAddress}>
+                        <lightning-input-field field-name={addressField} variant="label-stacked" required></lightning-input-field>
+                        <lightning-button class=" slds-button slds-m-top_small slds-button_stretch" label="Save Address" variant="brand" type="submit"></lightning-button>
+                    </template>
+                </lightning-record-edit-form>
+            </div>
+        </div>
+    <lightning-record-edit-form
+    object-api-name={deviceRequestObject}
+    onsuccess={handleSuccess}
+    record-type-id="012JR000000vk1JYAQ">
+    <lightning-messages></lightning-messages>
+        <div class="slds-grid slds-wrap slds-gutters slds-p-bottom_small">
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="request-step-header">Step 2: Select One Toy Type</h2>
+                <p class="request-step-text">Our builders will adapt a variety of toys. Given stock limitations, we cannot deliver specific branded toys.</p>
+                <lightning-button label="More Info" class=" slds-button slds-m-top_small slds-button_stretch" onclick={openToyModal}></lightning-button>
+                <c-nlsq-modal header="Toy Types" data-id="toy-modal">
+                    <div slot="body">
+                        <c-card-list card-data={toyCardArray} card-style="custom-card-style"></c-card-list>
+                    </div>
+                </c-nlsq-modal>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-input-field field-name={toyTypeField} variant="label-stacked" required></lightning-input-field>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <h2 class="request-step-header">Step 3: Select One Assistive Switch</h2>
+                <p class="request-step-text">Each switch-adapted toy comes with an assistive switch so your child can start playing right away!</p>
+                <lightning-button label="More Info" class=" slds-button slds-m-top_small slds-button_stretch" onclick={openSwitchModal}></lightning-button>
+                <c-nlsq-modal header="Switch Types" data-id="switch-modal">
+                    <div slot="body">
+                        <c-card-list card-data={switchCardArray} card-style="custom-card-style"></c-card-list>
+                    </div>
+                </c-nlsq-modal>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-input-field field-name={switchTypeField} variant="label-stacked" required></lightning-input-field>
+            </div>
+            <lightning-input-field field-name={deviceField} value={toyID} class="slds-hide"></lightning-input-field>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <span></span>
+            </div>
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                <lightning-button
+                class="slds-buton slds-m-top_small slds-button_stretch"
+                type="submit"
+                label="Submit Toy Request"
+                variant="brand">
+                </lightning-button>
+            </div>
+        </div>
+    </lightning-record-edit-form>
+    </template>
+    <template if:false={isCanada}>
+        <div class="request-section-container">
+            <h2 class="request-step-header">Requests are limited to Canada only</h2>
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <p>If you live in Canada, please use the link below to update your address on the Profile Page</p>
+                    <a class="slds-button slds-button_brand" href="https://www.makersmakingchange.com/s/profile/">Profile Page</a>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
+                    <p>If you live outside of Canada, please click below to request a Toy through our standard Maker process. </p>
+                    <a class="slds-button slds-button_brand" href="https://www.makersmakingchange.com/s/category/assistive-devices/0ZGJR00000002Mn4AI?c__results_layout_state=%7B%22page_number%22%3A1%2C%22category_id%22%3A%220ZGJR00000002Mn4AI%22%2C%22refinements%22%3A%5B%7B%22nameOrId%22%3A%22Device_Category__c%22%2C%22type%22%3A%22DistinctValue%22%2C%22attributeType%22%3A%22Custom%22%2C%22values%22%3A%5B%22Adapted%20Toys%22%5D%7D%5D%7D">Assistive Device Library</a>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

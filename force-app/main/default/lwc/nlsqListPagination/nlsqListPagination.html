@@ -1,0 +1,33 @@
+<template>
+    <template if:true={isCmpShown}>
+        <div class="page_btns_outer">
+            <button class="page_btn arrow" data-value="1" onclick={setPage} disabled={isNoPrev}>
+                <span data-value="1">|&lt;</span>
+            </button>
+            <button class="page_btn arrow" data-value="-1" onclick={changePage} disabled={isNoPrev}>
+                <span data-value="-1">&lt;</span>
+                <!-- <img src={icons.pageArrow} alt="&lt;" data-value="-1" /> -->
+            </button>
+            <div class="page_btns">
+                <template for:each={pageBtns} for:item="pageBtn">
+                    <button
+                        class={pageBtn.className}
+                        key={pageBtn.value}
+                        data-value={pageBtn.value}
+                        disabled={pageBtn.disabled}
+                        onclick={setPage}
+                    >
+                        {pageBtn.value}
+                    </button>
+                </template>
+            </div>
+            <button class="page_btn arrow" data-value="1" onclick={changePage} disabled={isNoNext}>
+                <span data-value="1" class="rotated">&lt;</span>
+                <!-- <img class="rotated" src={icons.pageArrow} alt="&lt;" data-value="1" /> -->
+            </button>
+            <button class="page_btn arrow" data-value={pagesCount} onclick={setPage} disabled={isNoNext}>
+                <span data-value={pagesCount} class="rotated">|&lt;</span>
+            </button>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,27 @@
+.THIS .two-columns-content__inner {
+    display: flex;
+    gap: 30px;
+}
+.THIS .two-columns-left,
+.THIS .two-columns-right {
+    width: 50%;
+}
+.THIS .two-columns-content__header {
+    margin: 30px;
+}
+.THIS .two-columns-content__footer {
+    margin-top: 30px;
+}
+.THIS.two-columns-layout__footer-grey {
+    background: #F3F2F3;
+}
+
+@media screen and (max-width: 767px) {
+    .THIS .two-columns-content__inner {
+        flex-direction: column;
+    }
+    .THIS .two-columns-left,
+    .THIS .two-columns-right {
+        width: 100%;
+    }
+}

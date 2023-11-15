@@ -1,0 +1,9 @@
+.country-state__input {
+    max-width: 300px;
+}
+
+@media screen and (max-width: 767px) {
+    .country-state__input {
+        max-width: 100%;
+    }
+}

@@ -1,0 +1,23 @@
+<template>
+    <lightning-combobox
+        label={labels.lblCountry}
+        value={countryValue}
+        name={countryName}
+        options={countries}
+        onchange={handleChange}
+        data-input="country"
+        class="country-state__input"
+        required={countryRequired}
+    ></lightning-combobox>
+    <lightning-combobox
+        if:true={states.length}
+        label={labels.stateLabel}
+        value={stateValue}
+        name={stateName}
+        options={states}
+        onchange={handleChange}
+        data-input="state"
+        class="country-state__input"
+        required={stateRequired}
+    ></lightning-combobox>
+</template>

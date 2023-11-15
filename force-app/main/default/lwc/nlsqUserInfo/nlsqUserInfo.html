@@ -1,0 +1,26 @@
+<template>
+    <div class="user-info__container">
+        <h2 class="user-info__title">{role} {labels.infoLabel}</h2>
+        <div class="user-info__input-container">
+            <div class="user-info__input">
+                <h3 class="user-info__input-label">{labels.userNameLabel}</h3>
+                <input class="slds-input" type="text" value={name} placeholder={defaultValue} readonly> 
+            </div>
+           
+            <div class="user-info__input">
+                <h3 class="user-info__input-label">{labels.cityLabel}</h3>
+                <input class="slds-input" type="text" value={city} placeholder={defaultValue} readonly> 
+            </div>
+          
+            <div class="user-info__input">
+                <h3 class="user-info__input-label">{labels.stateLabel}</h3>
+                <input class="slds-input" type="text" value={state} placeholder={defaultValue} readonly> 
+            </div>
+           
+            <div class="user-info__input">
+                <h3 class="user-info__input-label">{labels.countryLabel}</h3>
+                <input class="slds-input" type="text" value={country} placeholder={defaultValue} readonly> 
+            </div>
+        </div>           
+    </div>
+</template>

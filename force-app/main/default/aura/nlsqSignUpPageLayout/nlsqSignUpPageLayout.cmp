@@ -1,0 +1,9 @@
+<aura:component implements="forceCommunity:layout" description="Neil Squire Sign Up Page Layout" access="global">
+    <aura:attribute name="signUpRegion" type="Aura.Component[]" />
+
+    <div class="sign-up-page-content">
+        <div class="sign-up__wrapper">
+            <div class="sign-up__inner">{!v.signUpRegion}</div>
+        </div>
+    </div>
+</aura:component>

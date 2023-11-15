@@ -1,0 +1,32 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes,force:hasRecordId">
+    <aura:handler name="init" value="{!this}" action="{!c.init}" />
+
+    <aura:attribute name="userId" type="String" />
+    <aura:attribute name="recordId" type="String"/>
+    <aura:attribute name="request" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    <aura:attribute name="isShown" type="Boolean" default="false"/>
+
+    <div class="discussion-forum__container">
+        <div class="nlsq__wrapper">
+            <lightning:messageChannel
+                type="discussionForum__c"
+                onMessage="{!c.handleReceiveMessage}"
+            />
+
+            <force:recordData 
+                aura:id="recordLoader"
+                fields="OwnerId, Maker__c"
+                recordId="{!v.recordId}"
+                targetFields="{!v.request}"
+                targetError="{!v.recordError}"
+                recordUpdated="{!c.handleRecordUpdated}"
+            />
+
+            <aura:if isTrue="{!v.isShown}">
+                <forceChatter:feed type="Record" subjectId="{!v.recordId}" feedDesign="DEFAULT"/>
+                <forceChatter:publisher context="RECORD" recordId="{!v.recordId}"/>
+            </aura:if>
+        </div>
+    </div>
+</aura:component>

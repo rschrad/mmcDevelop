@@ -1,0 +1,16 @@
+<template>
+    <div class="device-reviews__container">
+        <h3 class="reviews_header">{labels.hReviews}</h3>
+        <lightning-spinner if:true={isLoading} alternative-text="Loading" size="small"></lightning-spinner>
+        <template if:true={reviews.length} for:each={reviews} for:item="review">
+            <c-nlsq-review-item class="device-reviews__item" key={review.Id} device-review={review}></c-nlsq-review-item>
+        </template>
+        <div if:false={reviews.length} class="empty-reviews">
+            <img class="empty-reviews__image" src={noReviews} />
+            <p class="empty-reviews__text">{labels.noReviewsForDevice}</p>
+        </div>
+        <div class="reviews_pagination">
+            <c-nlsq-list-pagination onsetpage={handleSetPage} current-page={currentPage}> </c-nlsq-list-pagination>
+        </div>
+    </div>
+</template>

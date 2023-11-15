@@ -1,0 +1,39 @@
+<template>
+    <div class="container">
+        <lightning-spinner if:true={isLoading} alternative-text="Loading" size="small"></lightning-spinner>
+        <div class="builds-requests-header">
+            <h1 class="builds-requests-header__title">{labels.MY_BUILDS_AND_REQUESTS}</h1>
+            <a if:false={showFullList} onclick={openAllRequestsPage} class="builds-requests-header__link">{labels.VIEW_ALL}</a>
+        </div>
+        <div if:true={isNoResults} class="empty-builds-requests">
+            <img class="empty-builds-requests__image" src={myBuildsAndRequestsImg} />
+            <p class="empty-builds-requests__text">{labels.NO_REQUESTS}</p>
+        </div>
+        <div if:true={requests.length}>
+            <div class="builds-requests__cards">
+                <template for:each={requests} for:item="wrapper">
+                    <div class="builds-requests__card-container" key={wrapper.request.Id}>
+                        <img class="card-container__image" src={wrapper.mediaUrl} />
+                        <p class="card-container__request-name">{labels.REQUEST_FOR} {wrapper.request.Device__r.Name}</p>
+                        <p class="card-container__text">
+                            {labels.REQUESTOR}:
+                            <span class="card-container__text card-container__text_gray">{wrapper.request.Owner.Name}</span>
+                        </p>
+                        <p if:true={wrapper.request.Maker__c} class="card-container__text">
+                            {labels.MAKER}:
+                            <span class="card-container__text card-container__text_gray">{wrapper.request.Maker__r.Name}</span>
+                        </p>
+                        <p if:false={wrapper.request.Maker__c} class="card-container__text">
+                            {labels.MAKER}:
+                            <span class="card-container__text card-container__text_gray">{labels.NO_MAKER}</span>
+                        </p>
+                        <a class="card-container__link" data-id={wrapper.request.Id} onclick={openRequest}>{labels.VIEW}</a>
+                    </div>
+                </template>
+            </div>
+        </div>
+        <div class="reviews_pagination" if:true={showFullList}>
+            <c-nlsq-list-pagination onsetpage={handleSetPage} current-page={currentPage}></c-nlsq-list-pagination>
+        </div>
+    </div>
+</template>

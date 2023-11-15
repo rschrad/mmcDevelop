@@ -1,0 +1,13 @@
+<template>
+    <template for:each={options} for:item="option">
+        <lightning-input
+            class="multi-picklist-checkbox"
+            type="checkbox"
+            key={option.value}
+            label={option.label}
+            value={option.value}
+            onchange={handleChange}
+        >
+        </lightning-input>
+    </template>
+</template>

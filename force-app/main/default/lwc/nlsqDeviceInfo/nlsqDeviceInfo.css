@@ -1,0 +1,26 @@
+.device_field {
+    max-width: 900px;
+}
+.device_field_header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;    
+    font-family: 'Roboto Slab', serif;
+    padding: 40px 0;
+}
+.device_field.expandable .device_field_header {
+    cursor: pointer;
+}
+.device_field_header > span {
+    color: #26225E;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    font-size: 36px;
+}
+
+:host {
+    --lwc-formLabelFontSize: 1.5rem;
+    --lwc-colorTextLabel:#26225E;
+    --lwc-formTextFontSize: 1.0rem;
+}

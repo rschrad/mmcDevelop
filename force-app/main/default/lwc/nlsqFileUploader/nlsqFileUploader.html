@@ -1,0 +1,40 @@
+<template>
+    <div class="file_uploader">
+        <div class="title">{label}&nbsp;<span class="subtitle">{labels.subtitle}</span></div>
+        <div class="file_uploader_header">{labels.headerTitle} ({files.length})</div>
+        <div class="file_uploader_body">
+            <div class="files_list" if:true={files}>
+                <template for:each={files} for:item="file" for:index="i">
+                    <div class="file" key={file.Id}>
+                        <div>
+                            <span class="name">{file.Title} ({file.PathOnClient}) </span>
+                            <lightning-button
+                                variant="destructive"
+                                label={labels.btnDelete}
+                                data-content-document-id={file.ContentDocumentId}
+                                onclick={deleteFile}
+                                disabled={isDeleteBtnDisabled}
+                                class="slds-var-m-left_x-small"
+                            >
+                            </lightning-button>
+                        </div>
+                        <lightning-input
+                            type="text"
+                            label={labels.fieldImageAltText}
+                            data-index={i}
+                            max-length="255"
+                            onchange={setAltText}
+                        ></lightning-input>
+                    </div>
+                </template>
+            </div>
+            <lightning-file-upload
+                name="fileUploader"
+                onuploadfinished={handleUploadFinished}
+                multiple={isMultiple}
+                accept={acceptedFormats}
+            >
+            </lightning-file-upload>
+        </div>
+    </div>
+</template>

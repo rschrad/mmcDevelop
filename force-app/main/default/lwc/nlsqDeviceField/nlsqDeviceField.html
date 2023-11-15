@@ -1,0 +1,27 @@
+<template>
+    <template if:true={field}>
+        <div class={classList}>
+            <template if:false={isFieldName}>
+                <div class="device_field_header" onclick={expandField}>
+                    <span>{fieldLabel}</span>
+                    <template if:true={isShowExpander}>
+                        <lightning-icon icon-name="utility:chevrondown" class="device-field-arrow" if:true={isExpanded}></lightning-icon>
+                        <lightning-icon icon-name="utility:chevronright" class="device-field-arrow" if:false={isExpanded}></lightning-icon>
+                    </template>
+                </div>
+                <template if:true={isExpanded}>
+                    <lightning-record-view-form object-api-name="Product2" record-id={recordId}>
+                        <lightning-output-field variant="label-hidden" field-name={field}></lightning-output-field>
+                    </lightning-record-view-form>
+                </template>
+            </template>
+            <template if:true={isFieldName}>
+                <div class="device_field_header">
+                    <lightning-record-view-form object-api-name="Product2" record-id={recordId}>
+                        <lightning-output-field variant="label-hidden" field-name={field} class="device-field"></lightning-output-field>
+                    </lightning-record-view-form>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,33 @@
+.accept-build-request__modal-body {
+    height: 305px;
+}
+.modal-body__input {
+    font: 600 14px/18px 'Open Sans', sans-serif;
+}
+.accept-build-request__modal-footer {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+.accept-build-request__container {
+    padding: 40px 0;
+    border-bottom: 1px solid #BEB9BB;
+}
+.accept-build-request__btn-cancel {
+    border: 1px solid var(--lwc-brandAccessible);
+    color: var(--lwc-brandAccessible);
+    background: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    .accept-build-request {
+        display: flex;
+        justify-content: center;
+    }
+    .accept-build-request__modal-footer {
+        flex-direction: column;
+    }
+    .accept-build-request__container {
+        padding: 20px 0;
+    }
+}

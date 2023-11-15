@@ -1,0 +1,81 @@
+.THIS.discussion-forum__container {
+    background: #F3F2F3;
+    padding-bottom: 80px;
+}
+.THIS .forceChatterStyle--default .cuf-feed .cuf-element {
+    position: relative;
+    border: 1px solid #C7C7C7;
+    padding: 20px;
+    border-radius: 10px;
+    background: #F7F7F7;
+}
+.THIS .forceChatterStyle--default .cuf-feedElement.cuf-feedElement,
+.THIS .slds-input {
+    background: #fff;
+    border-radius: 10px;
+    border: 1px solid #C7C7C7;
+}
+.THIS .forceChatterFeedItem .feed__item-comments--threadedCommunity {
+    background: transparent;
+    border: none;
+}
+.THIS .forceChatterFeedback--default .commentInputArea {
+    padding: 20px 0 0 0;
+}
+.THIS .uiTabset--task .tabs__nav {
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+}
+.THIS .uiTabset--task .tabs__content {
+    border-radius: 0 0 10px 10px;
+    overflow: hidden;
+}
+.THIS .forcePublisherQuickActionCollapser .slds-no-space {
+    border-radius: 10px;
+}
+.THIS .forceChatterFeedItem .comment--threadedCommunity {
+    border-radius: 10px;
+    border: 1px solid #C7C7C7;
+}
+.THIS .slds-button_icon-bare {
+    border: 1px solid #C7C7C7;
+    width: var(--lwc-squareIconXSmallBoundary,1.25rem);
+    height: var(--lwc-squareIconXSmallBoundary,1.25rem);
+    display: flex;
+    justify-content: center;
+}
+.THIS .forceChatterStyle .forceChatterEntityPhoto.standardSize {
+    width: 51px;
+    height: 51px;
+}
+.THIS .forceChatterStyle--default .cuf-feedback .cuf-smallActorImage,
+.THIS .slds-avatar_small {
+    width: 40px;
+    height: 40px;
+}
+.THIS .commentActorAndInput .input-text .slds-form-element__control {
+    height: 40px;
+}
+.THIS .forceChatterStyle .cuf-preamble {
+    font: 600 18px/25px 'Open Sans', sans-serif;
+}
+.THIS .forceChatterStyle .entityLinkHover .uiOutputText {
+    border: none;
+}
+.THIS .slds-text-body--small{
+    font: 400 16px/22px 'Open Sans', sans-serif;
+}
+.THIS .forceChatterFeedBodyText p {
+    font: 400 18px/25px 'Open Sans', sans-serif;
+}
+.THIS .uiTabset--task .tabs__item:first-child>a,
+.THIS .uiTabset--task .tabs__nav,
+.THIS .forcePublisherQuickActionCollapser .dummyControlsContainer {
+    background: #F7F7F7;
+}
+
+@media screen and (max-width: 767px) {
+    .THIS.discussion-forum__container {
+        padding-bottom: 30px;
+    }
+}

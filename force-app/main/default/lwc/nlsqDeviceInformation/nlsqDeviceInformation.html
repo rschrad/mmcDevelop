@@ -1,0 +1,18 @@
+<template>
+    <lightning-accordion 
+        allow-multiple-sections-open>
+        <div class="slds-p-around_medium">
+            <lightning-accordion-section 
+                name = "deviceDetails" 
+                label="Device Details"
+                class="device_info_accordian">
+                <lightning-record-edit-form object-api-name="Product2" record-id={recordId}>
+                    <lightning-output-field  field-name={overviewField}></lightning-output-field>
+                    <lightning-output-field  field-name={howToUseField}></lightning-output-field>
+                    <lightning-output-field  field-name={applicableDisabilitiesField}></lightning-output-field>
+                    <lightning-output-field  field-name={estimatedCostField}></lightning-output-field>
+                </lightning-record-edit-form>
+            </lightning-accordion-section>
+        </div>
+    </lightning-accordion>
+</template>

@@ -1,0 +1,22 @@
+.subtitle {
+    font: 400 10px/14px 'Open Sans', sans-serif;
+    color: #8C898A;
+}
+.title {
+    font: 400 14px/19px 'Open Sans', sans-serif;
+    padding-bottom: 10px;
+}
+.file_uploader_header {
+    font: 400 16px/22px 'Open Sans', sans-serif;
+    color: #000;
+    padding: 30px 20px;
+    background: #FFF;
+    border: 1px solid #BEB9BB;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 767px) {
+    .file_uploader_header {    
+        padding: 10px 20px;
+    }
+}

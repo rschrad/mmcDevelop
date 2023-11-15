@@ -1,0 +1,66 @@
+<template>
+    <div class="stars">
+        <div class="starbar" style={isEditable}>
+            <div class="outer">
+                <template for:each={ratingList} for:item="ratingItem">
+                    <div key={ratingItem.id} class="outer-star aps-item__rating-star" onclick={setRating} data-index={ratingItem.id}>
+                        <svg
+                            data-index={ratingItem.id}
+                            width="18"
+                            height="18"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                data-index={ratingItem.id}
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M11.1043 2.17701L12.9317 5.82776C13.1108 6.18616
+                                13.4565 6.43467 13.8573 6.49218L17.9453 7.08062C18.9554 7.22644 19.3573 8.45055 18.6263 9.15194L15.6702 11.9924C15.3797 
+                                12.2718 15.2474 12.6733 15.3162 13.0676L16.0138 17.0778C16.1856 18.0698 15.1298 18.8267 14.227 18.3574L10.5732 16.4627C10.215
+                                16.2768 9.78602 16.2768 9.42679 16.4627L5.773 18.3574C4.87023 18.8267 3.81439 18.0698 3.98724 17.0778L4.68385 13.0676C4.75257 
+                                12.6733 4.62033 12.2718 4.32982 11.9924L1.37368 9.15194C0.642715 8.45055 1.04464 7.22644 2.05466 7.08062L6.14265 6.49218C6.54354
+                                6.43467 6.89028 6.18616 7.06937 5.82776L8.89574 2.17701C9.34765 1.27433 10.6523 1.27433 11.1043 2.17701Z"
+                                stroke={starStrokeColorCSS}
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </div>
+                </template>
+            </div>
+            <template if:true={rating}>
+                <div class="starbar_w" style={ratingVariable}>
+                    <template for:each={ratingList} for:item="ratingItem">
+                        <div key={ratingItem.id} class="inner-star aps-item__rating-star" onclick={setRating} data-index={ratingItem.id}>
+                            <svg
+                                data-index={ratingItem.id}
+                                width="18"
+                                height="18"
+                                viewBox="0 0 18 18"
+                                fill={starFillColorCSS}
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    data-index={ratingItem.id}
+                                    fill-rule="evenodd"
+                                    clip-rule="evenodd"
+                                    d="M10.1043 1.17701L11.9317 4.82776C12.1108 5.18616 12.4565
+                                        5.43467 12.8573 5.49218L16.9453 6.08062C17.9554 6.22644 18.3573 7.45054 17.6263 8.15194L14.6702 10.9924C14.3797 11.2718 14.2474 11.6733
+                                        14.3162 12.0676L15.0138 16.0778C15.1856 17.0698 14.1298 17.8267 13.227 17.3574L9.57321 15.4627C9.21502 15.2768 8.78602 15.2768 8.42679 
+                                        15.4627L4.773 17.3574C3.87023 17.8267 2.81439 17.0698 2.98724 16.0778L3.68385 12.0676C3.75257 11.6733 3.62033 11.2718 3.32982 10.9924L0.37368
+                                        8.15194C-0.357285 7.45054 0.0446417 6.22644 1.05466 6.08062L5.14265 5.49218C5.54354 5.43467 5.89028 5.18616 6.06937 4.82776L7.89574 
+                                        1.17701C8.34765 0.274331 9.65235 0.274331 10.1043 1.17701Z"
+                                    fill="#FDB515"
+                                />
+                            </svg>
+                        </div>
+                    </template>
+                </div>
+            </template>
+        </div>
+        <div class="votes" if:true={votesString}>{votesString}</div>
+    </div>
+</template>

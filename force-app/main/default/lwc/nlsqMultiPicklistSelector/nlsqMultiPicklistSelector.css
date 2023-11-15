@@ -1,0 +1,3 @@
+.multi-picklist-checkbox:not(:last-child) {
+    margin-bottom: 20px;
+}

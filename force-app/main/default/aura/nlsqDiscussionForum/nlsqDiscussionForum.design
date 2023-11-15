@@ -1,0 +1,3 @@
+<design:component label="Neil Squire Discussion Forum">
+    <design:attribute name="recordId" label="Id" description="Record Id" />
+</design:component>

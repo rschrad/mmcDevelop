@@ -1,0 +1,58 @@
+<template>
+    <div class="submit-request__container">
+        <div class="submit-request">
+            <lightning-spinner if:true={isLoading} variant="brand" size="large"> </lightning-spinner>
+            <h3 class="submit-request__title">{labels.hSubmitRequestTitle}</h3>
+            <lightning-combobox
+                class="validate submit-request__label-text"
+                name={uiFields.device}
+                value={currentRequest.Device__c}
+                options={devices}
+                label={labels.lblDeviceName}
+                required
+                onchange={setRequestField}
+            ></lightning-combobox>
+            <c-nlsq-country-and-state
+                country-field-value={currentRequest.Country__c}
+                country-name={uiFields.country}
+                state-field-value={currentRequest.State__c}
+                state-name={uiFields.state}
+                onchangepicklist={setRequestAddressField}
+                ongetstatesbycountry={setStatesByCountry}
+                country-required
+                state-required
+                class="submit-request__label-text country-state__container"
+            ></c-nlsq-country-and-state>
+            <div>
+                <lightning-input
+                    class="validate submit-request__label-text"
+                    name={uiFields.city}
+                    type="text"
+                    label={labels.lblCity}
+                    max-length="50"
+                    required
+                    onchange={setRequestField}
+                    value={currentRequest.City__c}
+                ></lightning-input>
+                <p class="submit-request__input-description">{cityValueSize} {labels.msgSymbolsLimit}</p>
+            </div>
+            <lightning-textarea
+                class="validate submit-request__label-text submit-request__textarea"
+                name={uiFields.message}
+                label={labels.msgAddMessage}
+                required
+                onchange={setRequestField}
+                placeholder={labels.msgToVolunteerMaker}
+            ></lightning-textarea>
+            <p class="submit-request__consent-title">{labels.labelConsent}</p>
+            <lightning-input
+                class="validate submit-request__label-text submit-request__consent"
+                type="checkbox"
+                label={labels.msgAgreePostRequest}
+                required
+            ></lightning-input>
+            <c-nlsq-re-captcha required error-msg={labels.msgCompleteThisField} onchange={handleReCaptcha}></c-nlsq-re-captcha>
+            <lightning-button label={labels.btnSubmitRequest} class="submit-request__btn" onclick={submitRequest}></lightning-button>
+        </div>
+    </div>
+</template>

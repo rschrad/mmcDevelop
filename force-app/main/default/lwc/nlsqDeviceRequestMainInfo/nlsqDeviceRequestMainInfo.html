@@ -1,0 +1,52 @@
+<template>
+    <div class="request-main-info__container" if:true={request}>
+        <div class="request-main-info nlsq__wrapper">
+            <div class="request-main-info__left">
+                <h1 class="request-main-info__subtitle">{labels.requestFor}</h1>
+                <a href={deviceURL} target="_blank"><h1 class="request-main-info__title">{request.Device__r.displayValue}</h1></a>
+                <h2 class="request-main-info__text-bold">{labels.stage}</h2>
+                <div class="request-main-info__update-stages">
+                    <h2 class="request-main-info__text">{stage}</h2>
+                    <div if:true={stage}>
+                        <lightning-button
+                            class="request-main-info__update-btn"
+                            if:true={showUpdateButton}
+                            label={labels.update}
+                            onclick={openModal}
+                        ></lightning-button>
+                    </div>
+                </div>
+                <div class="request-main-info__stages" if:true={stage}>
+                    <c-nlsq-progress-path
+                        class="stages__progress-path"
+                        options={progressStages}
+                        value={stage}
+                        completed={isCompleted}
+                    ></c-nlsq-progress-path>
+                    <lightning-button
+                        class="stages__btn"
+                        if:true={isCurrentUserIsRequestor}
+                        label={labels.received}
+                        disabled={receiveBtnDisabled}
+                        onclick={handleReceive}
+                    ></lightning-button>
+                </div>
+                <h2 class="request-main-info__text-bold">{labels.requestDate}:</h2>
+                <lightning-formatted-date-time
+                    class="request-main-info__text"
+                    value={request.Request_Date__c.value}
+                ></lightning-formatted-date-time>
+            </div>
+            <div class="request-main-info__right" if:true={imgUrl}>
+                <img class="request-main-info__img" alt="device-img" src={imgUrl} />
+            </div>
+        </div>
+    </div>
+    <c-nlsq-acceptance-for-build-request request={request} onupdaterequest={refreshView}></c-nlsq-acceptance-for-build-request>
+    <c-nlsq-modal header={labels.changeStage}>
+        <div class="request-main-info__modal-body" slot="body" style="height: 200px">
+            <lightning-combobox options={requestStages} value={stage} onchange={handleStage}></lightning-combobox>
+        </div>
+        <button slot="footer" class="slds-button slds-button_brand" onclick={updateStage}>{labels.update}</button>
+    </c-nlsq-modal>
+</template>

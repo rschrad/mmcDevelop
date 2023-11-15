@@ -1,0 +1,30 @@
+@page { 
+size: 8.5in 11in;
+}
+@page{
+@bottom-left {content: element(footer);} 
+} 
+div.content{
+font: 12px Verdana, sans-serif; 
+line-height: 150%;
+}
+div.footer { 
+font: italic 12px Verdana, sans-serif; 
+display: block;
+padding: 5px;
+position: running(footer); 
+}
+.Logo
+{
+width: 316px;
+height: 75px;
+}
+.Signature{
+width: 100px;
+height: 50px;
+}
+.Label{
+    font-family: 'Roboto Slab', serif;
+    font-size: 24px;
+    color: #26225E;
+}

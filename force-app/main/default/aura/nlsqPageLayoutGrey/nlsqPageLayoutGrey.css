@@ -1,0 +1,7 @@
+.THIS.default-page-content {
+    background: #F3F2F3;
+    padding-bottom: 50px;
+}
+.THIS.default-page-content__header:not(:empty) {
+    background: #fff;
+}

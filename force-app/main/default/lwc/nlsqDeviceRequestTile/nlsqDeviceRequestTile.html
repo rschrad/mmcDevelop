@@ -1,0 +1,17 @@
+<template>
+    <div class="device_request-container columns">
+        <div class="menu-list" onclick={openDeviceRequest}>
+            <h3 class="menu-list__item device_request__text">{deviceRequest.Request_Date__c}</h3>
+            <div class="menu-list__item device_request__text">
+                <h3 class="device_request__name">{deviceRequest.Device__r.Name}</h3>
+                <div class="device_request__description">
+                    <p class="device_request__text_semi-bold">{labels.requestedNotesLabel}: </p>
+                    <p class="device_request__info device_request__text">{deviceRequest.Request_Notes__c}</p>
+                </div>
+            </div>
+            <h3 class="menu-list__item device_request__text">{deviceRequest.City__c}</h3>
+            <h3 class="menu-list__item device_request__text">{deviceRequest.State__c}</h3>
+            <h3 class="menu-list__item device_request__text">{deviceRequest.Country__c}</h3>
+        </div>
+    </div>
+</template>

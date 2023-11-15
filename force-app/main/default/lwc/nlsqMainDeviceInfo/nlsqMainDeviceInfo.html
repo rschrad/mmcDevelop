@@ -1,0 +1,111 @@
+<template>
+    <c-nlsq-alert
+        if:true={isDesignerInactiveDevice}
+        main-text={labels.msgInactiveDevice}
+        type="warning"
+        icon-name="utility:info"
+    ></c-nlsq-alert>
+    <div class="product-detail__wrapper" if:true={device}>
+        <div class="nlsq__product-detail">
+            <h3 class="small-title">{device.Name}</h3>
+            <template if:false={isGuestMode}>
+                <div class="product-detail__review">
+                    <div class="review__left">
+                        <div class="review__stars-container">
+                            <c-nlsq-rating-stars
+                                rating={device.Rating_Average__c}
+                                votes={device.Reviews_Count__c}
+                                color="#F3CD45"
+                            ></c-nlsq-rating-stars>
+                        </div>
+                    </div>
+                    <template if:false={isUserDesigner}>
+                        <c-nlsq-leave-review record-id={recordId} oncommentsave={refreshRating}></c-nlsq-leave-review>
+                    </template>
+                </div>
+            </template>
+            <p class="product-detail__description">{device.User_Value_Statement__c}</p>
+            <div class="product-detail__icons">
+                <template for:each={deviceInfoData.skillData} for:item="icon">
+                    <div if:true={icon.display} key={icon.skill} class="product-detail__icon-container">
+                        <img class="product-detail__skill-icon" src={icon.iconSrc} alt="" />
+                        <span class="product-detail__skill-name">{icon.skill}</span>
+                    </div>
+                </template>
+            </div>
+            <template if:false={isGuestMode}>
+                <div class="product-detail__profile" if:true={device.Designer__c}>
+                    <img class="profile__icon" src={device.Designer__r.FullPhotoUrl} alt="" />
+                    <span class="profile__name">{device.Designer__r.Name}</span>
+                </div>
+                <a href={requestLink} class="product-detail__button btn-default btn-indigo">{labels.btnRequestMaker}</a>
+                <div class="product-detail__buttons">
+                    <button type="button" class={likeStyle} disabled={isLikeDisabled} onclick={handleLike}>
+                        <svg class="btn-icon__icon" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                fill-rule="evenodd"
+                                clip-rule="evenodd"
+                                d="M2.48937 12.9656C1.07731 8.49889 2.72757
+                            3.39356 7.3559 1.88289C9.79048 1.08689 12.4777 1.55623 14.5017 3.09889C16.4165 1.59889
+                            19.2024 1.09222 21.6344 1.88289C26.2627 3.39356 27.9235 8.49889 26.5128 12.9656C24.8342
+                            18.3733 18.7126 22.832 15.9145 24.6366C15.0462 25.1966 13.9561 25.1983 13.0868 24.6399C10.3003
+                            22.8498 4.22191 18.429 2.48937 12.9656Z"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        <label class="button-icon__label">{labels.btnLike}</label>
+                    </button>
+                    <button type="button" class="btn-icon btn-teal btn-download" onclick={downloadRedirect}>
+                        <svg class="btn-icon__icon" viewBox="0 0 20 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 27H18" stroke="#5BBAA2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M9.99989 22V2" stroke="#5BBAA2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M18 13.9336L10.0007 22.0003L2 13.9336"
+                                stroke="#5BBAA2"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                        <label class="button-icon__label">{labels.btnDownload}</label>
+                    </button>
+                    <c-nlsq-share-modal class="share-modal" oncopylink={updateShares} name={device.Name}></c-nlsq-share-modal>
+                </div>
+            </template>
+            <div class="product-detail__activities">
+                <div class="product-detail__activities__left">
+                    <div class="activities__item activities__likes">
+                        <img class="activities__image" src={deviceInfoData.icons.likes} alt="" />
+                        <span>{likesQuantity}</span>
+                    </div>
+                    <div class="activities__item activities__downloads">
+                        <img class="activities__image" src={deviceInfoData.icons.downloads} alt="" />
+                        <span>{downloadsQuantity}</span>
+                    </div>
+                    <div class="activities__item activities__shares">
+                        <img class="activities__image" src={deviceInfoData.icons.shares} alt="" />
+                        <span>{sharesQuantity}</span>
+                    </div>
+                    <div class="activities__item activities__views">
+                        <img class="activities__image" src={deviceInfoData.icons.views} alt="" />
+                        <span>{viewsQuantity}</span>
+                    </div>
+                </div>
+                <div class="product-detail__activities__right">
+                    <div class="slds-box activities__update-info">
+                        <span>{labels.labelLastModifiedDate}</span>
+                        <lightning-formatted-date-time
+                            value={device.Last_Updated_Date__c}
+                            year="numeric"
+                            day="2-digit"
+                            month="long"
+                            time-zone="UTC"
+                        ></lightning-formatted-date-time>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

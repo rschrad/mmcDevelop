@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Neil Squire My Builds And Requests</masterLabel>
+    <targets>
+      <target>lightningCommunity__Page</target>
+      <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>  
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="recordId" type="String" label="Record Id"/>
+            <property name="viewAllPageApiName" type="String" label="View All Page Api Name" default="myBuildsAndRequests__c"/>
+            <property name="itemsPerPage" type="Integer" label="Items Per Page"/>
+            <property name="showFullList" type="Boolean" label="Show Full List"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

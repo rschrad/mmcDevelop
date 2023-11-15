@@ -1,0 +1,42 @@
+<template>
+    <div class="accept-build-request__container" if:true={isAcceptButtonShown}>
+        <div class="nlsq__wrapper accept-build-request">
+            <lightning-button class="accept-build-request__btn" label={labels.iCanBuild} onclick={openModal}></lightning-button>
+            <c-nlsq-modal header={labels.confirmAddress}>
+                <div class="accept-build-request__modal-body" slot="body">
+                    <div class="slds-notify slds-notify_alert" role="alert" if:true={isAlertShown}>
+                        <span class="slds-icon_container slds-icon-utility-user slds-m-right_x-small">
+                            <lightning-icon icon-name="utility:warning" size="small" variant="inverse"></lightning-icon>
+                        </span>
+                        <h2>{labels.msgRequestIsOutsideCountry}</h2>
+                    </div>
+                    <lightning-record-edit-form object-api-name="User" record-id={currentUserId}>
+                        <lightning-messages></lightning-messages>
+                        <lightning-input-field
+                            class="modal-body__input"
+                            required
+                            field-name={userFields.USER_COUNTRY.fieldApiName}
+                            onchange={changeCountry}
+                        >
+                        </lightning-input-field>
+                        <lightning-input-field
+                            class="modal-body__input"
+                            field-name={userFields.USER_STATE.fieldApiName}
+                            required
+                            if:true={states.length}
+                        ></lightning-input-field>
+                        <lightning-input-field
+                            class="modal-body__input"
+                            required
+                            field-name={userFields.USER_CITY.fieldApiName}
+                        ></lightning-input-field>
+                    </lightning-record-edit-form>
+                </div>
+                <footer class="accept-build-request__modal-footer" slot="footer">
+                    <button class="btn-default btn-indigo btn-review-submit" onclick={submit}>{labels.confirm}</button>
+                    <button class="btn-default accept-build-request__btn-cancel" onclick={closeModal}>{labels.cancel}</button>
+                </footer>
+            </c-nlsq-modal>
+        </div>
+    </div>
+</template>

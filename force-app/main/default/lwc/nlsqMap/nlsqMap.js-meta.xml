@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Neil Squire Map</masterLabel>
+    <targets>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightningCommunity__Default">
+            <property name="street" label="Street" type="String" />
+            <property name="city" label="City" type="String" />
+            <property name="country" label="Country" type="String" />
+            <property name="title" label="Title" type="String" />
+            <property name="zoomLevel" label="Zoom level" type="Integer" default="15"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>
